@@ -24,6 +24,14 @@
     "should_trigger": true
   },
   {
+    "query": "our go api memory grows steadily over a few days and then gets OOM killed. restarting fixes it for a while",
+    "should_trigger": false
+  },
+  {
+    "query": "go test -race is reporting a data race on a map in our cache struct. it has a mutex already",
+    "should_trigger": false
+  },
+  {
     "query": "our fastapi service gets really slow when traffic goes up but cpu sits at like 20%. even the /health endpoint times out under load. 4 uvicorn workers on ECS",
     "should_trigger": false
   },
@@ -37,14 +45,6 @@
   },
   {
     "query": "GET /invoices/{id} returns the invoice to any authenticated user. is that actually a problem? they do need a valid token to call it",
-    "should_trigger": false
-  },
-  {
-    "query": "our orders router is like 600 lines now and honestly half of it is business logic - there's a discount calculation inline in the POST handler. whats the right way to split this up in fastapi",
-    "should_trigger": false
-  },
-  {
-    "query": "onde eu coloco a validacao de que cliente bloqueado nao pode fazer pedido? no schema do pydantic ou na camada de servico?",
     "should_trigger": false
   },
   {

@@ -25,16 +25,24 @@ HERE = Path(__file__).resolve().parent
 # Which skills are genuinely confusable with which. Derived from overlapping
 # vocabulary and overlapping moments of use, not from topic similarity alone.
 CONFUSABLE_WITH: dict[str, list[str]] = {
-    "fastapi-architecture": ["python-testing", "fastapi-async", "project-context-discovery"],
-    "fastapi-async": ["concurrency-correctness", "fastapi-architecture", "python-testing"],
-    "concurrency-correctness": ["fastapi-async", "code-security", "fastapi-architecture"],
-    "python-testing": ["fastapi-architecture", "cicd-pipelines", "pr-review"],
+    # Python stack
+    "fastapi-architecture": ["python-testing", "fastapi-async", "go-architecture"],
+    "fastapi-async": ["concurrency-correctness", "go-concurrency", "fastapi-architecture"],
+    "python-testing": ["fastapi-architecture", "go-testing", "pr-review"],
+    # Go stack — the cross-language pairs are the sharpest negatives: same
+    # question, different stack, and only the stack word separates them.
+    "go-architecture": ["fastapi-architecture", "go-testing", "go-concurrency"],
+    "go-concurrency": ["concurrency-correctness", "fastapi-async", "go-architecture"],
+    "go-testing": ["python-testing", "go-architecture", "dev-environment"],
+    # transversal
+    "concurrency-correctness": ["go-concurrency", "fastapi-async", "code-security"],
     "pr-review": ["code-security", "gitflow", "project-context-discovery"],
     "code-security": ["pr-review", "concurrency-correctness", "cicd-pipelines"],
     "gitflow": ["pr-review", "cicd-pipelines", "project-context-discovery"],
-    "terraform-standards": ["cicd-pipelines", "code-security", "fastapi-architecture"],
-    "cicd-pipelines": ["gitflow", "terraform-standards", "python-testing"],
-    "project-context-discovery": ["fastapi-architecture", "pr-review", "python-testing"],
+    "terraform-standards": ["cicd-pipelines", "code-security", "dev-environment"],
+    "cicd-pipelines": ["dev-environment", "gitflow", "terraform-standards"],
+    "dev-environment": ["cicd-pipelines", "go-testing", "project-context-discovery"],
+    "project-context-discovery": ["fastapi-architecture", "pr-review", "dev-environment"],
 }
 
 HARD_NEGATIVES_PER_SIBLING = 2

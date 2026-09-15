@@ -280,6 +280,102 @@
     {
       "query": "should I use SELECT FOR UPDATE here or bump the isolation level to repeatable read? it's a wallet balance update",
       "skill": "concurrency-correctness"
+    },
+    {
+      "query": "adding a new invoices domain to our go service with gin. what packages do I create and what imports what",
+      "skill": "go-architecture"
+    },
+    {
+      "query": "getting 'import cycle not allowed' between internal/handlers and internal/services. how should this be laid out instead",
+      "skill": "go-architecture"
+    },
+    {
+      "query": "should my service depend on the sqlc Querier interface directly? it has like 40 methods and my fake is huge",
+      "skill": "go-architecture"
+    },
+    {
+      "query": "meu handler do gin ta com 200 linhas, tem regra de negocio e query direto ali dentro. como separo isso",
+      "skill": "go-architecture"
+    },
+    {
+      "query": "where do I translate sql.ErrNoRows into something the handler can turn into a 404? feels wrong to import database/sql in the handler",
+      "skill": "go-architecture"
+    },
+    {
+      "query": "is it ok to pass the *gin.Context down into the service layer? it implements context.Context so it compiles",
+      "skill": "go-architecture"
+    },
+    {
+      "query": "our go api memory grows steadily over a few days and then gets OOM killed. restarting fixes it for a while",
+      "skill": "go-concurrency"
+    },
+    {
+      "query": "go test -race is reporting a data race on a map in our cache struct. it has a mutex already",
+      "skill": "go-concurrency"
+    },
+    {
+      "query": "I need to call 4 downstream services in parallel inside one handler and fail fast if any of them errors",
+      "skill": "go-concurrency"
+    },
+    {
+      "query": "preciso disparar um envio de email depois que o handler responde. posso usar go func com o context do request?",
+      "skill": "go-concurrency"
+    },
+    {
+      "query": "fatal error: all goroutines are asleep - deadlock! happens in one of our tests but not the others",
+      "skill": "go-concurrency"
+    },
+    {
+      "query": "every deploy we see a small spike of 502s for about 10 seconds. suspect we're killing in-flight requests",
+      "skill": "go-concurrency"
+    },
+    {
+      "query": "how do I test a gin handler without spinning up a real server on a port",
+      "skill": "go-testing"
+    },
+    {
+      "query": "write tests for this go service method, it takes a store interface and a payment gateway",
+      "skill": "go-testing"
+    },
+    {
+      "query": "should I use mockery to generate mocks for our store interfaces or just write structs by hand",
+      "skill": "go-testing"
+    },
+    {
+      "query": "our sqlc repository tests use sqlite for speed but we're on postgres in prod. is that a problem",
+      "skill": "go-testing"
+    },
+    {
+      "query": "como testo as queries geradas pelo sqlc? testcontainers ou banco compartilhado no CI",
+      "skill": "go-testing"
+    },
+    {
+      "query": "this go test passes when I run it alone but fails in the full package run, something about rows already existing",
+      "skill": "go-testing"
+    },
+    {
+      "query": "new dev joined and spent half a day getting the project running. how do I make this one command",
+      "skill": "dev-environment"
+    },
+    {
+      "query": "our docker image is 1.3GB for a go binary. what am I doing wrong",
+      "skill": "dev-environment"
+    },
+    {
+      "query": "every time I change a line of python the docker build reinstalls all dependencies. takes 4 minutes",
+      "skill": "dev-environment"
+    },
+    {
+      "query": "preciso subir postgres e redis local pro projeto, e um comando unico pra rodar a api contra eles",
+      "skill": "dev-environment"
+    },
+    {
+      "query": "make test does nothing and exits 0. there's a test directory in the repo, not sure if related",
+      "skill": "dev-environment"
+    },
+    {
+      "query": "add a target to run the integration suite, and make sure it starts the database first instead of people forgetting",
+      "skill": "dev-environment"
     }
   ]
 }

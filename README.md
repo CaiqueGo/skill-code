@@ -8,28 +8,32 @@ current project are expensive. And **what depends on the language?** — gitflow
 Terraform and review criteria are identical in any stack; architecture and testing
 are not.
 
-Hence the two plugins:
+Hence three plugins:
 
 | Plugin | Skills | Install when |
 |---|---|---|
-| `engineering-base` | 7, language-agnostic | always |
+| `engineering-base` | 8, language-agnostic | always |
 | `python-fastapi` | 3, stack-specific | the project is Python/FastAPI |
+| `go-gin` | 3, stack-specific | the project is Go with gin and sqlc |
 
-A new stack (Go, Node) becomes a new plugin alongside, reusing `engineering-base`.
+Install `engineering-base` plus the one stack you are in — never both stacks. A
+Python project loads 11 descriptions, not 14.
+
+A new stack becomes another plugin alongside, reusing `engineering-base` unchanged.
 
 ## Installation
 
 ```bash
 /plugin marketplace add CaiqueGo/skill-code
 /plugin install engineering-base@skill-code
-/plugin install python-fastapi@skill-code
+/plugin install python-fastapi@skill-code   # or go-gin@skill-code
 ```
 
 Without plugins — copy the skills into a specific project:
 
 ```bash
 cp -r plugins/engineering-base/skills/* .claude/skills/
-cp -r plugins/python-fastapi/skills/* .claude/skills/
+cp -r plugins/python-fastapi/skills/* .claude/skills/   # or go-gin
 ```
 
 ## The skills
@@ -45,6 +49,7 @@ cp -r plugins/python-fastapi/skills/* .claude/skills/
 | `gitflow` | branch, commit, merge, release, hotfix, revert |
 | `terraform-standards` | any `.tf` — AWS in depth, GCP and Azure by equivalence |
 | `cicd-pipelines` | anything under `.github/workflows/` |
+| `dev-environment` | Makefile, docker compose, Dockerfile, "how do I run this" |
 
 ### python-fastapi
 
@@ -53,6 +58,19 @@ cp -r plugins/python-fastapi/skills/* .claude/skills/
 | `fastapi-architecture` | organizing code, "where does this rule go", new module |
 | `fastapi-async` | `async`/`await`, or symptoms of slowness and hanging |
 | `python-testing` | writing or fixing tests, unit through e2e |
+
+### go-gin
+
+| Skill | Triggers when |
+|---|---|
+| `go-architecture` | packages, gin handlers, sqlc as the data layer, import cycles |
+| `go-concurrency` | goroutines, channels, context, races, leaks, shutdown |
+| `go-testing` | table tests, httptest, testcontainers against real Postgres |
+
+The two stack plugins mirror each other on purpose: architecture, concurrency,
+testing. What differs is what each language actually gets wrong — Python's single
+event loop versus Go's shared memory are not the same problem, so they are not the
+same skill.
 
 `project-context-discovery` governs the others: it reads the project's **real**
 conventions and decides what wins when they diverge from the standards here. Without
@@ -102,8 +120,8 @@ on errors — wire it into CI.
 
 `evals/` measures something the validator cannot: whether a skill actually fires on
 the prompts it should, and stays quiet on the ones it should not. Read
-`evals/README.md` before running it — a full run starts 192 `claude -p` sessions and
-costs accordingly. Any change to a `description` should be checked there.
+`evals/README.md` before running it — a full run starts hundreds of `claude -p`
+sessions and costs accordingly. Any change to a `description` should be checked there.
 
 ### Writing a new skill
 

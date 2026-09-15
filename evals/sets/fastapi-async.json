@@ -32,19 +32,19 @@
     "should_trigger": false
   },
   {
+    "query": "our go api memory grows steadily over a few days and then gets OOM killed. restarting fixes it for a while",
+    "should_trigger": false
+  },
+  {
+    "query": "go test -race is reporting a data race on a map in our cache struct. it has a mutex already",
+    "should_trigger": false
+  },
+  {
     "query": "our orders router is like 600 lines now and honestly half of it is business logic - there's a discount calculation inline in the POST handler. whats the right way to split this up in fastapi",
     "should_trigger": false
   },
   {
     "query": "onde eu coloco a validacao de que cliente bloqueado nao pode fazer pedido? no schema do pydantic ou na camada de servico?",
-    "should_trigger": false
-  },
-  {
-    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
-    "should_trigger": false
-  },
-  {
-    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
     "should_trigger": false
   },
   {

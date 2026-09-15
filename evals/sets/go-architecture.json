@@ -1,26 +1,26 @@
 [
   {
-    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
+    "query": "adding a new invoices domain to our go service with gin. what packages do I create and what imports what",
     "should_trigger": true
   },
   {
-    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
+    "query": "getting 'import cycle not allowed' between internal/handlers and internal/services. how should this be laid out instead",
     "should_trigger": true
   },
   {
-    "query": "how do I test a fastapi endpoint that depends on get_current_user without actually doing the auth flow",
+    "query": "should my service depend on the sqlc Querier interface directly? it has like 40 methods and my fake is huge",
     "should_trigger": true
   },
   {
-    "query": "this test passes on its own but fails when I run the whole suite. it's a fastapi e2e test that uses dependency_overrides",
+    "query": "meu handler do gin ta com 200 linhas, tem regra de negocio e query direto ali dentro. como separo isso",
     "should_trigger": true
   },
   {
-    "query": "preciso escrever teste pro repositorio novo de invoices, ele faz upsert com ON CONFLICT. mocko a session ou uso banco de verdade",
+    "query": "where do I translate sql.ErrNoRows into something the handler can turn into a 404? feels wrong to import database/sql in the handler",
     "should_trigger": true
   },
   {
-    "query": "we're at 45% coverage and my manager wants 90% across the board. is that a reasonable target and where should I actually start",
+    "query": "is it ok to pass the *gin.Context down into the service layer? it implements context.Context so it compiles",
     "should_trigger": true
   },
   {
@@ -40,11 +40,11 @@
     "should_trigger": false
   },
   {
-    "query": "can you review this diff before I push it? it changes how we compute the invoice total and adds a new column",
+    "query": "our go api memory grows steadily over a few days and then gets OOM killed. restarting fixes it for a while",
     "should_trigger": false
   },
   {
-    "query": "revisa esse PR aqui - adiciona endpoint de exportacao de relatorio e mexe na migration da tabela de orders",
+    "query": "go test -race is reporting a data race on a map in our cache struct. it has a mutex already",
     "should_trigger": false
   },
   {

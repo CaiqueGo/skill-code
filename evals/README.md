@@ -1,7 +1,7 @@
 # evals — does each skill fire when it should?
 
 > **Running the full suite costs real money.** `run_trigger_eval.py` starts one
-> `claude -p` session per query per run. A full run is 192 sessions and consumed a
+> `claude -p` session per query per run. A full run is currently 282 sessions and once consumed a
 > large share of a personal token budget in under five minutes. The script refuses
 > runs above 60 sessions unless you pass `--yes`. Start with the cheap command
 > below and only scale up deliberately.
@@ -25,7 +25,7 @@ which needs realistic prompts, repeated runs, and a rate.
 
 | File | Role |
 |---|---|
-| `corpus.json` | **The durable asset.** 70 realistic prompts, each labelled with the one skill that should fire (or `none`). Written the way people actually type — slang, typos, context, some in Portuguese |
+| `corpus.json` | **The durable asset.** 94 realistic prompts, each labelled with the one skill that should fire (or `none`). Written the way people actually type — slang, typos, context, some in Portuguese |
 | `build_eval_sets.py` → `sets/` | One file per skill. The trick: one skill's negatives are the other skills' positives, which is what tests cross-talk |
 | `fixture.py` | Builds a small but realistic FastAPI project — git history, a pending diff, a CI workflow, Terraform — seeded with the exact defects the skills describe |
 | `run_trigger_eval.py` | **The expensive one.** Installs every skill in a throwaway project and runs each prompt N times, recording which skills fired |
@@ -35,7 +35,7 @@ which needs realistic prompts, repeated runs, and a rate.
 ## Running it
 
 ```bash
-# cheap: 20 queries x 2 runs = 40 sessions. Start here.
+# cheap: 28 queries x 2 runs = 56 sessions. Start here.
 python evals/run_trigger_eval.py --limit 2 --runs 2 --workers 4
 
 python evals/analyze_results.py evals/results.json

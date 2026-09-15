@@ -5,7 +5,7 @@
 
 Every query starts a real `claude -p` session: full system prompt, every skill
 description, plus however many turns the model takes. A full run is one session per
-query per run — currently 70 queries x 3 runs = 210 sessions, and each one can read
+query per run — currently 94 queries x 3 runs = 282 sessions, and each one can read
 files and run git commands against the fixture.
 
 A full run measured here consumed a substantial share of a personal token budget
@@ -14,7 +14,7 @@ it in CI, and do not leave it unattended.
 
 Cheap version that gives most of the same signal:
 
-    python evals/run_trigger_eval.py --limit 2 --runs 2 --workers 4   # 36 sessions
+    python evals/run_trigger_eval.py --limit 2 --runs 2 --workers 4   # 56 sessions
 
 Never pass --no-block on a full run: unrestricted tools multiply the turns, and
 therefore the tokens, in every single session.

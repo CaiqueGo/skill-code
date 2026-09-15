@@ -40,11 +40,11 @@
     "should_trigger": false
   },
   {
-    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
+    "query": "new dev joined and spent half a day getting the project running. how do I make this one command",
     "should_trigger": false
   },
   {
-    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
+    "query": "our docker image is 1.3GB for a go binary. what am I doing wrong",
     "should_trigger": false
   },
   {

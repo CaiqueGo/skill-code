@@ -1,26 +1,26 @@
 [
   {
-    "query": "I removed one item from the middle of a list and now terraform plan wants to recreate 14 ssm parameters. why is it doing that",
+    "query": "new dev joined and spent half a day getting the project running. how do I make this one command",
     "should_trigger": true
   },
   {
-    "query": "where should terraform state live for a team of 6 deploying to aws? right now it's committed in the repo which I'm told is bad",
+    "query": "our docker image is 1.3GB for a go binary. what am I doing wrong",
     "should_trigger": true
   },
   {
-    "query": "criando a infra de um servico novo na aws com ecs fargate e rds. como organizo os modulos e separo dev de prod",
+    "query": "every time I change a line of python the docker build reinstalls all dependencies. takes 4 minutes",
     "should_trigger": true
   },
   {
-    "query": "the plan output shows -/+ on our rds instance and I don't understand what I changed. it's a 200 line plan",
+    "query": "preciso subir postgres e redis local pro projeto, e um comando unico pra rodar a api contra eles",
     "should_trigger": true
   },
   {
-    "query": "someone changed a security group in the aws console and now our apply wants to revert it. what's the right way to handle this",
+    "query": "make test does nothing and exits 0. there's a test directory in the repo, not sure if related",
     "should_trigger": true
   },
   {
-    "query": "need to pass the database password into an rds resource. currently it's a variable in prod.tfvars which we gitignore",
+    "query": "add a target to run the integration suite, and make sure it starts the database first instead of people forgetting",
     "should_trigger": true
   },
   {
@@ -32,19 +32,19 @@
     "should_trigger": false
   },
   {
-    "query": "dependabot is screaming about a critical CVE in a transitive dependency of pandas. do I have to drop everything and fix this right now",
+    "query": "how do I test a gin handler without spinning up a real server on a port",
     "should_trigger": false
   },
   {
-    "query": "GET /invoices/{id} returns the invoice to any authenticated user. is that actually a problem? they do need a valid token to call it",
+    "query": "write tests for this go service method, it takes a store interface and a payment gateway",
     "should_trigger": false
   },
   {
-    "query": "new dev joined and spent half a day getting the project running. how do I make this one command",
+    "query": "just cloned our team's payments repo, never worked on it before. I need to add an endpoint this week. where do I even start",
     "should_trigger": false
   },
   {
-    "query": "our docker image is 1.3GB for a go binary. what am I doing wrong",
+    "query": "analisa esse projeto e me diz qual padrao ele segue antes da gente comecar a mexer",
     "should_trigger": false
   },
   {

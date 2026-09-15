@@ -1,0 +1,66 @@
+[
+  {
+    "query": "how do I test a gin handler without spinning up a real server on a port",
+    "should_trigger": true
+  },
+  {
+    "query": "write tests for this go service method, it takes a store interface and a payment gateway",
+    "should_trigger": true
+  },
+  {
+    "query": "should I use mockery to generate mocks for our store interfaces or just write structs by hand",
+    "should_trigger": true
+  },
+  {
+    "query": "our sqlc repository tests use sqlite for speed but we're on postgres in prod. is that a problem",
+    "should_trigger": true
+  },
+  {
+    "query": "como testo as queries geradas pelo sqlc? testcontainers ou banco compartilhado no CI",
+    "should_trigger": true
+  },
+  {
+    "query": "this go test passes when I run it alone but fails in the full package run, something about rows already existing",
+    "should_trigger": true
+  },
+  {
+    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
+    "should_trigger": false
+  },
+  {
+    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
+    "should_trigger": false
+  },
+  {
+    "query": "adding a new invoices domain to our go service with gin. what packages do I create and what imports what",
+    "should_trigger": false
+  },
+  {
+    "query": "getting 'import cycle not allowed' between internal/handlers and internal/services. how should this be laid out instead",
+    "should_trigger": false
+  },
+  {
+    "query": "new dev joined and spent half a day getting the project running. how do I make this one command",
+    "should_trigger": false
+  },
+  {
+    "query": "our docker image is 1.3GB for a go binary. what am I doing wrong",
+    "should_trigger": false
+  },
+  {
+    "query": "how should I organize my React components? we have a components folder that's 80 files flat and it's unmanageable",
+    "should_trigger": false
+  },
+  {
+    "query": "my node express api is slow under load and the event loop looks blocked. using the clinic.js flame graph",
+    "should_trigger": false
+  },
+  {
+    "query": "write a python function that reads this CSV and returns a dict of totals grouped by category",
+    "should_trigger": false
+  },
+  {
+    "query": "what's the actual difference between ENTRYPOINT and CMD in a Dockerfile",
+    "should_trigger": false
+  }
+]

@@ -28,28 +28,47 @@ wins** for naming and organization — the skills win for correctness and securi
 Consult these rather than working from memory. They exist because the memory
 version drifts.
 
+Applies in any stack:
+
+| Working on | Use |
+|---|---|
+| check-then-act on shared state, money, stock, queue handlers, retries | `concurrency-correctness` |
+| auth, secrets, user input reaching a query, new dependency | `code-security` |
+| reviewing a diff or PR, including your own before opening it | `pr-review` |
+| branches, commit messages, releases, reverts | `gitflow` |
+| Makefile, docker compose, Dockerfile, "how do I run this" | `dev-environment` |
+| any `.tf` file | `terraform-standards` |
+| anything under `.github/workflows/` | `cicd-pipelines` |
+
+<!-- Keep the block for this project's stack and delete the other. -->
+
+**Python / FastAPI:**
+
 | Working on | Use |
 |---|---|
 | any endpoint, module, or "where does this go" question | `fastapi-architecture` |
 | anything with `async`/`await`, or a slowness or hang symptom | `fastapi-async` |
-| check-then-act on shared state, money, stock, queue handlers, retries | `concurrency-correctness` |
 | writing or fixing any test | `python-testing` |
-| auth, secrets, user input reaching a query, new dependency | `code-security` |
-| reviewing a diff or PR, including your own before opening it | `pr-review` |
-| branches, commit messages, releases, reverts | `gitflow` |
-| any `.tf` file | `terraform-standards` |
-| anything under `.github/workflows/` | `cicd-pipelines` |
 
-More than one usually applies. A new endpoint that reads from the database is
-`fastapi-architecture` **and** `code-security`, and it is not finished without
-`python-testing`.
+**Go / gin / sqlc:**
+
+| Working on | Use |
+|---|---|
+| packages, handlers, sqlc queries, "where does this go", import cycles | `go-architecture` |
+| goroutines, channels, `context`, races, leaks, shutdown | `go-concurrency` |
+| writing or fixing any test | `go-testing` |
+
+More than one usually applies. A new endpoint that reads from the database is the
+architecture skill **and** `code-security`, and it is not finished without the
+testing one.
 
 ## Non-negotiable
 
 These hold regardless of what the surrounding code does. Finding an existing
 violation is a reason to flag it, not a reason to copy it.
 
-- Business rules never import `fastapi` or `sqlalchemy`
+- Business rules never import the web framework or the database driver
+  (`fastapi`/`sqlalchemy`, `gin`/`database/sql`)
 - Database queries are parameterized — never an f-string, never concatenation,
   not even with a value that "comes from our own system"
 - Ownership is a parameter of the query, not a check afterwards. An endpoint
@@ -73,8 +92,12 @@ a reviewer would read it (`git diff main...HEAD`).
 <!-- Fill this in. It saves a discovery pass on every session. -->
 
 - **Stack**:
-- **Run tests**:
-- **Run lint**:
+- **Run tests**: `make test`
+- **Run lint**: `make lint`
+- **Start dependencies**: `make up`
 - **Business layer is called**: `Manager` | `Service` | other
 - **Migrations**:
 - **Deploy**:
+
+If those commands are not make targets yet, see `dev-environment` — a command that
+only lives in a README drifts from reality within a month.

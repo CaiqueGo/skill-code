@@ -24,6 +24,14 @@
     "should_trigger": true
   },
   {
+    "query": "new dev joined and spent half a day getting the project running. how do I make this one command",
+    "should_trigger": false
+  },
+  {
+    "query": "our docker image is 1.3GB for a go binary. what am I doing wrong",
+    "should_trigger": false
+  },
+  {
     "query": "we deploy like 5 times a day. should we be using gitflow with develop and release branches? that's what the last place I worked did",
     "should_trigger": false
   },
@@ -37,14 +45,6 @@
   },
   {
     "query": "where should terraform state live for a team of 6 deploying to aws? right now it's committed in the repo which I'm told is bad",
-    "should_trigger": false
-  },
-  {
-    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
-    "should_trigger": false
-  },
-  {
-    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
     "should_trigger": false
   },
   {

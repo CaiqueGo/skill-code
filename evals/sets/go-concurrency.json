@@ -1,34 +1,34 @@
 [
   {
-    "query": "our orders router is like 600 lines now and honestly half of it is business logic - there's a discount calculation inline in the POST handler. whats the right way to split this up in fastapi",
+    "query": "our go api memory grows steadily over a few days and then gets OOM killed. restarting fixes it for a while",
     "should_trigger": true
   },
   {
-    "query": "onde eu coloco a validacao de que cliente bloqueado nao pode fazer pedido? no schema do pydantic ou na camada de servico?",
+    "query": "go test -race is reporting a data race on a map in our cache struct. it has a mutex already",
     "should_trigger": true
   },
   {
-    "query": "I'm adding a new subscriptions domain to our fastapi service. what files do I need and how should they reference each other",
+    "query": "I need to call 4 downstream services in parallel inside one handler and fail fast if any of them errors",
     "should_trigger": true
   },
   {
-    "query": "should my repository return the sqlalchemy model or convert it to a dataclass first? converting feels like a lot of boilerplate for no reason",
+    "query": "preciso disparar um envio de email depois que o handler responde. posso usar go func com o context do request?",
     "should_trigger": true
   },
   {
-    "query": "we have OrderService, PaymentManager and a UserHelper all doing roughly the same kind of thing. trying to settle on one convention for the team, any opinion",
+    "query": "fatal error: all goroutines are asleep - deadlock! happens in one of our tests but not the others",
     "should_trigger": true
   },
   {
-    "query": "my endpoint needs to check the user owns the resource, then apply a discount, then save, then call the billing api. right now thats all in the route function and it's getting hard to follow",
+    "query": "every deploy we see a small spike of 502s for about 10 seconds. suspect we're killing in-flight requests",
     "should_trigger": true
   },
   {
-    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
+    "query": "two requests hit POST /orders/{id}/pay at the same time and the customer got charged twice. the code checks status == paid before charging, I don't get how it slipped through",
     "should_trigger": false
   },
   {
-    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
+    "query": "we got two users in the database with the same email even though the signup endpoint checks if the email exists first",
     "should_trigger": false
   },
   {
