@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "engineering-base",
-      "description": "Language-agnostic standards: project context discovery, PR review, code and dependency security, concurrency correctness, gitflow, Terraform (AWS/GCP/Azure) and GitHub Actions.",
+      "description": "Language-agnostic standards: project context discovery, PR review, code and dependency security, concurrency correctness, gitflow, Terraform (AWS/GCP/Azure), GitHub Actions pipelines, and the local development environment (Makefile, Docker).",
       "category": "workflow",
       "source": "./plugins/engineering-base"
     },
@@ -16,6 +16,12 @@
       "description": "Python/FastAPI service standards: layered architecture with the manager pattern, concurrency and the event loop, unit and end-to-end testing. Install alongside engineering-base.",
       "category": "development",
       "source": "./plugins/python-fastapi"
+    },
+    {
+      "name": "go-gin",
+      "description": "Go HTTP service standards for gin and sqlc: package-per-domain architecture, goroutines and context, table-driven testing against real Postgres. Install alongside engineering-base.",
+      "category": "development",
+      "source": "./plugins/go-gin"
     }
   ]
 }

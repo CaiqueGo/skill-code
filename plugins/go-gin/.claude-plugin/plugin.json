@@ -1,0 +1,8 @@
+{
+  "name": "go-gin",
+  "description": "Go HTTP service standards for gin and sqlc: package-per-domain architecture, goroutines and context, table-driven testing against real Postgres.",
+  "version": "0.1.0",
+  "author": {
+    "name": "CaiqueGo"
+  }
+}
