@@ -151,7 +151,10 @@ def main() -> int:
         all_errors += errors
         all_warnings += warnings
 
-    agents = sorted(ROOT.glob("plugins/*/agents/*.md"))
+    # plugins/*/agents ships to users; .claude/agents is for maintaining this repo
+    agents = sorted(
+        [*ROOT.glob("plugins/*/agents/*.md"), *ROOT.glob(".claude/agents/*.md")]
+    )
     for agent_md in agents:
         errors, warnings = validate_agent(agent_md)
         all_errors += errors

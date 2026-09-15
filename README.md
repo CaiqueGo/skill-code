@@ -74,14 +74,35 @@ same skill.
 
 ## Agents
 
-| Agent | Ships with | Does |
-|---|---|---|
-| `context-discovery` | `engineering-base` | investigates a repository and returns a ~40-line brief of its real conventions |
-
 A skill is instructions injected into the current conversation; an agent runs in
 its own context and returns a report. An agent is worth the cold start only when it
 buys context isolation, parallelism, independence from your reasoning, or
 restricted tools.
+
+**Shipped** — installed with the plugin:
+
+| Agent | Ships with | Does |
+|---|---|---|
+| `context-discovery` | `engineering-base` | investigates a repository and returns a ~40-line brief of its real conventions |
+
+**Maintenance** — in `.claude/agents/`, for working on *this* repository. They are
+deliberately outside the plugins, so nobody installing the skills receives them:
+
+| Agent | Does |
+|---|---|
+| `skill-consistency-auditor` | reads all 14 skills and reports where they contradict each other, where a cross-reference is stale, and where an example violates a rule stated elsewhere |
+| `skill-value-checker` | answers a question with the skills hidden from it, so you can compare and find the parts a skill would have produced anyway |
+
+`skill-consistency-auditor` exists because the failure mode of a package this size
+is two skills telling the reader different things about the same subject —
+sessions, idempotency, timeouts, which skill owns what. Several thousand lines do
+not fit in one context, so nobody can check it by reading.
+
+`skill-value-checker` is the one that can *only* be an agent. The test for whether
+a skill section earns its place is "would the model have said this anyway?", and
+you cannot answer it once you have read the skill. A fresh context can. It is
+forbidden from opening any file under `plugins/`, and reports which files it read
+so you can confirm the answer is uncontaminated.
 
 `context-discovery` buys the first and the last. A thorough investigation reads the
 manifest, the tree, a full vertical slice, two tests and the CI config — dozens of
