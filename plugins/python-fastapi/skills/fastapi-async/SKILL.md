@@ -1,9 +1,19 @@
 ---
 name: fastapi-async
-description: Concurrency, event loop and performance in asynchronous Python services (FastAPI, asyncio, httpx, SQLAlchemy async) — when to use `async def` versus `def`, what blocks the loop, parallelism with gather and TaskGroup, bounded concurrency, timeouts and background tasks. Use ALWAYS when `async`/`await`/`asyncio` appears in the code, when writing an endpoint that makes more than one external call, and especially when the symptom is about performance — "the API is slow", "it hangs under load", "the healthcheck fails in production but works locally", "requests are queueing up", intermittent timeouts, or unexplained CPU/latency. Trigger also on seeing `requests`, `time.sleep`, `open()` or a synchronous driver inside an `async` function.
+description: Concurrency, event loop and performance in asynchronous Python services (FastAPI, asyncio, httpx, SQLAlchemy async) — when to use `async def` versus `def`, what blocks the loop, parallelism with gather and TaskGroup, bounded concurrency, timeouts and background tasks. Use ALWAYS when `async`/`await`/`asyncio` appears in the code, when writing an endpoint that makes more than one external call, and especially when the symptom is about speed — "the API is slow", "it hangs under load", "the healthcheck fails in production but works locally", "requests are queueing up", intermittent timeouts, or unexplained CPU/latency. Trigger also on seeing `requests`, `time.sleep`, `open()` or a synchronous driver inside an `async` function. This skill is about throughput inside one process; wrong *results* under concurrency — double charges, lost updates, database deadlocks — belong to `concurrency-correctness` instead.
 ---
 
 # Concurrency and the event loop in FastAPI
+
+## Scope
+
+This skill is about **throughput inside one process**: what keeps the event loop
+moving and what stalls it. Wrong results when two requests touch the same state —
+double charges, lost updates, database deadlocks, idempotency — are a different
+problem with different fixes, and they live in `concurrency-correctness`.
+
+The quick test: if the complaint is *slow*, you are in the right place. If the
+complaint is *wrong*, you are not.
 
 ## The single rule
 

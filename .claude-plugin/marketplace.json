@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "engineering-base",
-      "description": "Language-agnostic standards: project context discovery, PR review, code and dependency security, gitflow, Terraform (AWS/GCP/Azure) and GitHub Actions.",
+      "description": "Language-agnostic standards: project context discovery, PR review, code and dependency security, concurrency correctness, gitflow, Terraform (AWS/GCP/Azure) and GitHub Actions.",
       "category": "workflow",
       "source": "./plugins/engineering-base"
     },

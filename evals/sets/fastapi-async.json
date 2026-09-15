@@ -24,6 +24,14 @@
     "should_trigger": true
   },
   {
+    "query": "two requests hit POST /orders/{id}/pay at the same time and the customer got charged twice. the code checks status == paid before charging, I don't get how it slipped through",
+    "should_trigger": false
+  },
+  {
+    "query": "we got two users in the database with the same email even though the signup endpoint checks if the email exists first",
+    "should_trigger": false
+  },
+  {
     "query": "our orders router is like 600 lines now and honestly half of it is business logic - there's a discount calculation inline in the POST handler. whats the right way to split this up in fastapi",
     "should_trigger": false
   },
@@ -37,14 +45,6 @@
   },
   {
     "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
-    "should_trigger": false
-  },
-  {
-    "query": "our github actions ci takes 22 minutes and at this point everyone just merges without waiting for it. how do I make it actually fast",
-    "should_trigger": false
-  },
-  {
-    "query": "I need the workflow to build and deploy to ECS on push to main. currently we have AWS_ACCESS_KEY_ID sitting in repo secrets",
     "should_trigger": false
   },
   {

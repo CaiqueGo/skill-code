@@ -32,19 +32,19 @@
     "should_trigger": false
   },
   {
+    "query": "two requests hit POST /orders/{id}/pay at the same time and the customer got charged twice. the code checks status == paid before charging, I don't get how it slipped through",
+    "should_trigger": false
+  },
+  {
+    "query": "we got two users in the database with the same email even though the signup endpoint checks if the email exists first",
+    "should_trigger": false
+  },
+  {
     "query": "our github actions ci takes 22 minutes and at this point everyone just merges without waiting for it. how do I make it actually fast",
     "should_trigger": false
   },
   {
     "query": "I need the workflow to build and deploy to ECS on push to main. currently we have AWS_ACCESS_KEY_ID sitting in repo secrets",
-    "should_trigger": false
-  },
-  {
-    "query": "I removed one item from the middle of a list and now terraform plan wants to recreate 14 ssm parameters. why is it doing that",
-    "should_trigger": false
-  },
-  {
-    "query": "where should terraform state live for a team of 6 deploying to aws? right now it's committed in the repo which I'm told is bad",
     "should_trigger": false
   },
   {

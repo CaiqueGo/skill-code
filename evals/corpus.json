@@ -25,7 +25,6 @@
       "query": "my endpoint needs to check the user owns the resource, then apply a discount, then save, then call the billing api. right now thats all in the route function and it's getting hard to follow",
       "skill": "fastapi-architecture"
     },
-
     {
       "query": "our fastapi service gets really slow when traffic goes up but cpu sits at like 20%. even the /health endpoint times out under load. 4 uvicorn workers on ECS",
       "skill": "fastapi-async"
@@ -50,7 +49,6 @@
       "query": "getting 'greenlet_spawn has not been called' and sometimes the connection is already in use, this is in a gather over 5 repository calls sharing one AsyncSession",
       "skill": "fastapi-async"
     },
-
     {
       "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
       "skill": "python-testing"
@@ -75,7 +73,6 @@
       "query": "we're at 45% coverage and my manager wants 90% across the board. is that a reasonable target and where should I actually start",
       "skill": "python-testing"
     },
-
     {
       "query": "can you review this diff before I push it? it changes how we compute the invoice total and adds a new column",
       "skill": "pr-review"
@@ -100,7 +97,6 @@
       "query": "I keep getting review comments that feel nitpicky and the actual bugs slip through. how should we be doing code review differently",
       "skill": "pr-review"
     },
-
     {
       "query": "dependabot is screaming about a critical CVE in a transitive dependency of pandas. do I have to drop everything and fix this right now",
       "skill": "code-security"
@@ -125,7 +121,6 @@
       "query": "we accidentally committed an AWS key three weeks ago and just noticed. already removed it in a new commit, are we good",
       "skill": "code-security"
     },
-
     {
       "query": "we deploy like 5 times a day. should we be using gitflow with develop and release branches? that's what the last place I worked did",
       "skill": "gitflow"
@@ -150,7 +145,6 @@
       "query": "my branch history is a mess - like eight commits called wip and fix. want to clean it up before asking for review",
       "skill": "gitflow"
     },
-
     {
       "query": "I removed one item from the middle of a list and now terraform plan wants to recreate 14 ssm parameters. why is it doing that",
       "skill": "terraform-standards"
@@ -175,7 +169,6 @@
       "query": "need to pass the database password into an rds resource. currently it's a variable in prod.tfvars which we gitignore",
       "skill": "terraform-standards"
     },
-
     {
       "query": "our github actions ci takes 22 minutes and at this point everyone just merges without waiting for it. how do I make it actually fast",
       "skill": "cicd-pipelines"
@@ -200,7 +193,6 @@
       "query": "the deploy job goes green but the new version isn't actually running - the ecs task is crash looping and nobody noticed for an hour",
       "skill": "cicd-pipelines"
     },
-
     {
       "query": "just cloned our team's payments repo, never worked on it before. I need to add an endpoint this week. where do I even start",
       "skill": "project-context-discovery"
@@ -225,7 +217,6 @@
       "query": "inherited a fastapi codebase from a contractor with no docs. help me understand what conventions it actually follows",
       "skill": "project-context-discovery"
     },
-
     {
       "query": "how should I organize my React components? we have a components folder that's 80 files flat and it's unmanageable",
       "skill": "none"
@@ -265,6 +256,30 @@
     {
       "query": "explain how TCP slow start works, I'm trying to understand a latency graph",
       "skill": "none"
+    },
+    {
+      "query": "two requests hit POST /orders/{id}/pay at the same time and the customer got charged twice. the code checks status == paid before charging, I don't get how it slipped through",
+      "skill": "concurrency-correctness"
+    },
+    {
+      "query": "we got two users in the database with the same email even though the signup endpoint checks if the email exists first",
+      "skill": "concurrency-correctness"
+    },
+    {
+      "query": "getting 'deadlock detected' in the postgres logs a few times a day on the transfers table. it always recovers but the request fails for the user",
+      "skill": "concurrency-correctness"
+    },
+    {
+      "query": "nosso consumer do SQS as vezes processa a mesma mensagem duas vezes e gera dois lancamentos no extrato. como garanto que processa so uma vez",
+      "skill": "concurrency-correctness"
+    },
+    {
+      "query": "stock went negative on a flash sale. we decrement it in python after reading the current value, seemed fine in testing",
+      "skill": "concurrency-correctness"
+    },
+    {
+      "query": "should I use SELECT FOR UPDATE here or bump the isolation level to repeatable read? it's a wallet balance update",
+      "skill": "concurrency-correctness"
     }
   ]
 }

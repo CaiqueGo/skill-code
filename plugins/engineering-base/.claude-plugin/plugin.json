@@ -1,6 +1,6 @@
 {
   "name": "engineering-base",
-  "description": "Language-agnostic engineering standards: project context discovery, PR review, code and dependency security, gitflow, Terraform (AWS/GCP/Azure) and GitHub Actions pipelines.",
+  "description": "Language-agnostic engineering standards: project context discovery, PR review, code and dependency security, concurrency correctness, gitflow, Terraform (AWS/GCP/Azure) and pipelines in GitHub Actions.",
   "version": "0.1.0",
   "author": {
     "name": "CaiqueGo"

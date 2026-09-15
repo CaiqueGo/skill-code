@@ -9,7 +9,7 @@ For each skill the eval file contains:
   - queries from the skills most likely to be confused with it, as hard negatives
   - unrelated queries as easy negatives
 
-Drawing negatives from sibling skills is the point: these nine skills share a
+Drawing negatives from sibling skills is the point: these skills share a
 domain, so the real failure mode is not "the skill never fires", it is "six skills
 fire on the same prompt". A negative set of only unrelated questions would score
 well and measure nothing.
@@ -26,10 +26,11 @@ HERE = Path(__file__).resolve().parent
 # vocabulary and overlapping moments of use, not from topic similarity alone.
 CONFUSABLE_WITH: dict[str, list[str]] = {
     "fastapi-architecture": ["python-testing", "fastapi-async", "project-context-discovery"],
-    "fastapi-async": ["fastapi-architecture", "python-testing", "cicd-pipelines"],
+    "fastapi-async": ["concurrency-correctness", "fastapi-architecture", "python-testing"],
+    "concurrency-correctness": ["fastapi-async", "code-security", "fastapi-architecture"],
     "python-testing": ["fastapi-architecture", "cicd-pipelines", "pr-review"],
     "pr-review": ["code-security", "gitflow", "project-context-discovery"],
-    "code-security": ["pr-review", "cicd-pipelines", "terraform-standards"],
+    "code-security": ["pr-review", "concurrency-correctness", "cicd-pipelines"],
     "gitflow": ["pr-review", "cicd-pipelines", "project-context-discovery"],
     "terraform-standards": ["cicd-pipelines", "code-security", "fastapi-architecture"],
     "cicd-pipelines": ["gitflow", "terraform-standards", "python-testing"],

@@ -25,10 +25,10 @@ which needs realistic prompts, repeated runs, and a rate.
 
 | File | Role |
 |---|---|
-| `corpus.json` | **The durable asset.** 64 realistic prompts, each labelled with the one skill that should fire (or `none`). Written the way people actually type — slang, typos, context, some in Portuguese |
+| `corpus.json` | **The durable asset.** 70 realistic prompts, each labelled with the one skill that should fire (or `none`). Written the way people actually type — slang, typos, context, some in Portuguese |
 | `build_eval_sets.py` → `sets/` | One file per skill. The trick: one skill's negatives are the other skills' positives, which is what tests cross-talk |
 | `fixture.py` | Builds a small but realistic FastAPI project — git history, a pending diff, a CI workflow, Terraform — seeded with the exact defects the skills describe |
-| `run_trigger_eval.py` | **The expensive one.** Installs all nine skills in a throwaway project and runs each prompt N times, recording which skills fired |
+| `run_trigger_eval.py` | **The expensive one.** Installs every skill in a throwaway project and runs each prompt N times, recording which skills fired |
 | `analyze_results.py` | Turns raw results into recall / precision / noise per skill |
 | `results-*.json` | Measurements already taken — see below |
 
@@ -51,7 +51,8 @@ leads to the wrong edit.
 
 ## What has been measured so far
 
-Two full runs (192 sessions each), 2026-09-14:
+Two full runs (192 sessions each), 2026-09-14, before `concurrency-correctness`
+existed:
 
 | | `results-baseline.json` | `results-fixture.json` |
 |---|---|---|
@@ -72,7 +73,7 @@ It changed nothing. Recall stayed at ~5%. The environment was not the cause.
 
 **What can be claimed:** the skills load and fire, precision is 100% where they
 fire, and there is zero cross-talk — no skill fired on another's prompt, and
-nothing fired on the ten unrelated prompts. That was the main risk of shipping nine
+nothing fired on the ten unrelated prompts. That was the main risk of shipping ten
 skills in one domain, and it is not happening.
 
 **What cannot be claimed:** whether ~5% recall means the descriptions are weak, or

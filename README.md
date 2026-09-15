@@ -12,7 +12,7 @@ Hence the two plugins:
 
 | Plugin | Skills | Install when |
 |---|---|---|
-| `engineering-base` | 6, language-agnostic | always |
+| `engineering-base` | 7, language-agnostic | always |
 | `python-fastapi` | 3, stack-specific | the project is Python/FastAPI |
 
 A new stack (Go, Node) becomes a new plugin alongside, reusing `engineering-base`.
@@ -41,6 +41,7 @@ cp -r plugins/python-fastapi/skills/* .claude/skills/
 | `project-context-discovery` | entering a repo for the first time — **run before the others** |
 | `pr-review` | reviewing a diff or PR, or before opening your own |
 | `code-security` | auth, secrets, injection, sensitive data, dependency CVEs |
+| `concurrency-correctness` | double charges, lost updates, deadlocks, idempotency |
 | `gitflow` | branch, commit, merge, release, hotfix, revert |
 | `terraform-standards` | any `.tf` — AWS in depth, GCP and Azure by equivalence |
 | `cicd-pipelines` | anything under `.github/workflows/` |

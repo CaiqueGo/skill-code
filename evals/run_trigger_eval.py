@@ -3,10 +3,10 @@
 
 !!  COST WARNING — READ BEFORE RUNNING  !!
 
-Every query starts a real `claude -p` session: full system prompt, all nine skill
-descriptions, plus however many turns the model takes. The default full run is
-64 queries x 3 runs = 192 sessions, and each session can read files and run git
-commands against the fixture.
+Every query starts a real `claude -p` session: full system prompt, every skill
+description, plus however many turns the model takes. A full run is one session per
+query per run — currently 70 queries x 3 runs = 210 sessions, and each one can read
+files and run git commands against the fixture.
 
 A full run measured here consumed a substantial share of a personal token budget
 in under five minutes. It is not a unit test. Do not run it casually, do not run
@@ -31,10 +31,10 @@ run that measures nothing.
 
 Two design choices that matter:
 
-1. All nine skills are installed into ONE throwaway project and each query records
+1. Every skill is installed into ONE throwaway project and each query records
    *which* skills fired. These skills share a domain, so the real failure is not
    "it never fires", it is "six fire at once". Testing one skill at a time cannot
-   see that, and costs nine times more.
+   see that, and costs one full pass per skill.
 
 2. Every query runs several times. Triggering is stochastic — measured here, the
    same query fired on one run and not on the next — so a single run per query

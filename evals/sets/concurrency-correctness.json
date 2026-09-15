@@ -1,0 +1,66 @@
+[
+  {
+    "query": "two requests hit POST /orders/{id}/pay at the same time and the customer got charged twice. the code checks status == paid before charging, I don't get how it slipped through",
+    "should_trigger": true
+  },
+  {
+    "query": "we got two users in the database with the same email even though the signup endpoint checks if the email exists first",
+    "should_trigger": true
+  },
+  {
+    "query": "getting 'deadlock detected' in the postgres logs a few times a day on the transfers table. it always recovers but the request fails for the user",
+    "should_trigger": true
+  },
+  {
+    "query": "nosso consumer do SQS as vezes processa a mesma mensagem duas vezes e gera dois lancamentos no extrato. como garanto que processa so uma vez",
+    "should_trigger": true
+  },
+  {
+    "query": "stock went negative on a flash sale. we decrement it in python after reading the current value, seemed fine in testing",
+    "should_trigger": true
+  },
+  {
+    "query": "should I use SELECT FOR UPDATE here or bump the isolation level to repeatable read? it's a wallet balance update",
+    "should_trigger": true
+  },
+  {
+    "query": "our fastapi service gets really slow when traffic goes up but cpu sits at like 20%. even the /health endpoint times out under load. 4 uvicorn workers on ECS",
+    "should_trigger": false
+  },
+  {
+    "query": "is it ok to call boto3 inside an async def endpoint? it works fine locally and in staging",
+    "should_trigger": false
+  },
+  {
+    "query": "dependabot is screaming about a critical CVE in a transitive dependency of pandas. do I have to drop everything and fix this right now",
+    "should_trigger": false
+  },
+  {
+    "query": "GET /invoices/{id} returns the invoice to any authenticated user. is that actually a problem? they do need a valid token to call it",
+    "should_trigger": false
+  },
+  {
+    "query": "our orders router is like 600 lines now and honestly half of it is business logic - there's a discount calculation inline in the POST handler. whats the right way to split this up in fastapi",
+    "should_trigger": false
+  },
+  {
+    "query": "onde eu coloco a validacao de que cliente bloqueado nao pode fazer pedido? no schema do pydantic ou na camada de servico?",
+    "should_trigger": false
+  },
+  {
+    "query": "how should I organize my React components? we have a components folder that's 80 files flat and it's unmanageable",
+    "should_trigger": false
+  },
+  {
+    "query": "my node express api is slow under load and the event loop looks blocked. using the clinic.js flame graph",
+    "should_trigger": false
+  },
+  {
+    "query": "write a python function that reads this CSV and returns a dict of totals grouped by category",
+    "should_trigger": false
+  },
+  {
+    "query": "what's the actual difference between ENTRYPOINT and CMD in a Dockerfile",
+    "should_trigger": false
+  }
+]
