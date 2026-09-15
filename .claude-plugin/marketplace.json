@@ -1,0 +1,21 @@
+{
+  "name": "skill-code",
+  "description": "House engineering standards: architecture, testing, review, security, git and infrastructure. The engineering-base plugin applies to any stack; stack plugins are installed per project language.",
+  "owner": {
+    "name": "CaiqueGo"
+  },
+  "plugins": [
+    {
+      "name": "engineering-base",
+      "description": "Language-agnostic standards: project context discovery, PR review, code and dependency security, gitflow, Terraform (AWS/GCP/Azure) and GitHub Actions.",
+      "category": "workflow",
+      "source": "./plugins/engineering-base"
+    },
+    {
+      "name": "python-fastapi",
+      "description": "Python/FastAPI service standards: layered architecture with the manager pattern, concurrency and the event loop, unit and end-to-end testing. Install alongside engineering-base.",
+      "category": "development",
+      "source": "./plugins/python-fastapi"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "python-fastapi",
+  "description": "Python/FastAPI service standards: layered architecture with the manager pattern, concurrency and the event loop, unit and end-to-end testing.",
+  "version": "0.1.0",
+  "author": {
+    "name": "CaiqueGo"
+  }
+}
