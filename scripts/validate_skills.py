@@ -102,6 +102,42 @@ def validate_skill(skill_md: Path) -> tuple[list[str], list[str]]:
     return errors, warnings
 
 
+def validate_agent(agent_md: Path) -> tuple[list[str], list[str]]:
+    """Agents fail the same silent way skills do: a name that does not match the
+    file, or a description too thin to route to."""
+    errors: list[str] = []
+    warnings: list[str] = []
+    rel = agent_md.relative_to(ROOT).as_posix()
+    text = agent_md.read_text(encoding="utf-8")
+
+    fields = parse_frontmatter(text)
+    if not fields:
+        return [f"{rel}: missing or malformed frontmatter"], []
+
+    name = fields.get("name", "")
+    if not name:
+        errors.append(f"{rel}: missing `name` in frontmatter")
+    elif name != agent_md.stem:
+        errors.append(f"{rel}: name='{name}' differs from filename '{agent_md.stem}'")
+
+    description = fields.get("description", "")
+    if not description:
+        errors.append(f"{rel}: missing `description` — nothing will route to this agent")
+    elif len(description.split()) < MIN_DESCRIPTION_WORDS:
+        warnings.append(
+            f"{rel}: description has {len(description.split())} words; "
+            f"say when to use it, not just what it is"
+        )
+
+    if "tools:" not in text.split("\n---", 1)[0]:
+        warnings.append(
+            f"{rel}: no `tools:` restriction — an investigating agent that can write "
+            f"is a footgun; list only the tools it needs"
+        )
+
+    return errors, warnings
+
+
 def main() -> int:
     skills = sorted(ROOT.glob("plugins/*/skills/*/SKILL.md"))
     if not skills:
@@ -115,12 +151,21 @@ def main() -> int:
         all_errors += errors
         all_warnings += warnings
 
+    agents = sorted(ROOT.glob("plugins/*/agents/*.md"))
+    for agent_md in agents:
+        errors, warnings = validate_agent(agent_md)
+        all_errors += errors
+        all_warnings += warnings
+
     for warning in all_warnings:
         print(f"warning: {warning}")
     for error in all_errors:
         print(f"ERROR:   {error}", file=sys.stderr)
 
-    print(f"\n{len(skills)} skills checked, {len(all_errors)} errors, {len(all_warnings)} warnings")
+    print(
+        f"\n{len(skills)} skills and {len(agents)} agents checked, "
+        f"{len(all_errors)} errors, {len(all_warnings)} warnings"
+    )
     return 1 if all_errors else 0
 
 

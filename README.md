@@ -72,6 +72,27 @@ testing. What differs is what each language actually gets wrong — Python's sin
 event loop versus Go's shared memory are not the same problem, so they are not the
 same skill.
 
+## Agents
+
+| Agent | Ships with | Does |
+|---|---|---|
+| `context-discovery` | `engineering-base` | investigates a repository and returns a ~40-line brief of its real conventions |
+
+A skill is instructions injected into the current conversation; an agent runs in
+its own context and returns a report. An agent is worth the cold start only when it
+buys context isolation, parallelism, independence from your reasoning, or
+restricted tools.
+
+`context-discovery` buys the first and the last. A thorough investigation reads the
+manifest, the tree, a full vertical slice, two tests and the CI config — dozens of
+files to produce forty lines. Inline, all of that stays in the conversation for the
+rest of the session. And with no write tools, an investigation cannot modify the
+code it is describing.
+
+The split is **the agent gathers, the skill decides**: collecting facts is
+mechanical and context-heavy, while deciding which convention wins depends on the
+task at hand and stays in the main conversation.
+
 `project-context-discovery` governs the others: it reads the project's **real**
 conventions and decides what wins when they diverge from the standards here. Without
 it, the rest impose a template and the repository ends up with two conventions
@@ -114,9 +135,10 @@ python plugins/python-fastapi/skills/fastapi-architecture/scripts/new_module.py 
 python scripts/validate_skills.py
 ```
 
-Checks frontmatter, `name` matching the directory, a description long enough to
-trigger, references pointing at nonexistent files, and oversized `SKILL.md`. Exits 1
-on errors — wire it into CI.
+Checks skills and agents: frontmatter, `name` matching the directory or filename, a
+description long enough to route to, references pointing at nonexistent files,
+oversized `SKILL.md`, and agents with no `tools:` restriction. Exits 1 on errors —
+wire it into CI.
 
 `evals/` measures something the validator cannot: whether a skill actually fires on
 the prompts it should, and stays quiet on the ones it should not. Read

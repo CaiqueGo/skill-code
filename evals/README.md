@@ -86,6 +86,13 @@ The cheap way to answer it is to use the skills in real work and notice whether
 they show up when they should. That costs nothing and tests the real environment
 rather than a headless one.
 
+## Agents are not measured here
+
+`run_trigger_eval.py` detects invocations of the `Skill` tool. An agent is reached
+through a different path, so a skill that delegates — `project-context-discovery`
+spawning `context-discovery` — still registers as that skill firing, while the
+agent's own routing is untested. Judge agents by reading their reports.
+
 ## Adding a skill
 
 Add its prompts to `corpus.json` tagged with its name — six or so, phrased

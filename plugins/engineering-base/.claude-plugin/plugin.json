@@ -1,6 +1,6 @@
 {
   "name": "engineering-base",
-  "description": "Language-agnostic engineering standards: project context discovery, PR review, code and dependency security, concurrency correctness, gitflow, Terraform (AWS/GCP/Azure), GitHub Actions pipelines, and the local development environment (Makefile, Docker).",
+  "description": "Language-agnostic engineering standards: project context discovery, PR review, code and dependency security, concurrency correctness, gitflow, Terraform (AWS/GCP/Azure), GitHub Actions pipelines, and the local development environment (Makefile, Docker). Ships the context-discovery agent, which investigates a repository read-only and reports its real conventions.",
   "version": "0.1.0",
   "author": {
     "name": "CaiqueGo"
