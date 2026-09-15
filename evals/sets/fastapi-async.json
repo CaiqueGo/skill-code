@@ -1,0 +1,66 @@
+[
+  {
+    "query": "our fastapi service gets really slow when traffic goes up but cpu sits at like 20%. even the /health endpoint times out under load. 4 uvicorn workers on ECS",
+    "should_trigger": true
+  },
+  {
+    "query": "is it ok to call boto3 inside an async def endpoint? it works fine locally and in staging",
+    "should_trigger": true
+  },
+  {
+    "query": "I need to fetch about 3000 product records from a partner API inside one endpoint. asyncio.gather over all of them is the right call right?",
+    "should_trigger": true
+  },
+  {
+    "query": "minha task com asyncio.create_task as vezes simplesmente nao executa, sem erro nenhum no log. o que pode ser",
+    "should_trigger": true
+  },
+  {
+    "query": "we're hashing passwords with bcrypt inside an async login endpoint and p99 latency went to 4 seconds after we bumped the cost factor",
+    "should_trigger": true
+  },
+  {
+    "query": "getting 'greenlet_spawn has not been called' and sometimes the connection is already in use, this is in a gather over 5 repository calls sharing one AsyncSession",
+    "should_trigger": true
+  },
+  {
+    "query": "our orders router is like 600 lines now and honestly half of it is business logic - there's a discount calculation inline in the POST handler. whats the right way to split this up in fastapi",
+    "should_trigger": false
+  },
+  {
+    "query": "onde eu coloco a validacao de que cliente bloqueado nao pode fazer pedido? no schema do pydantic ou na camada de servico?",
+    "should_trigger": false
+  },
+  {
+    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
+    "should_trigger": false
+  },
+  {
+    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
+    "should_trigger": false
+  },
+  {
+    "query": "our github actions ci takes 22 minutes and at this point everyone just merges without waiting for it. how do I make it actually fast",
+    "should_trigger": false
+  },
+  {
+    "query": "I need the workflow to build and deploy to ECS on push to main. currently we have AWS_ACCESS_KEY_ID sitting in repo secrets",
+    "should_trigger": false
+  },
+  {
+    "query": "how should I organize my React components? we have a components folder that's 80 files flat and it's unmanageable",
+    "should_trigger": false
+  },
+  {
+    "query": "my node express api is slow under load and the event loop looks blocked. using the clinic.js flame graph",
+    "should_trigger": false
+  },
+  {
+    "query": "write a python function that reads this CSV and returns a dict of totals grouped by category",
+    "should_trigger": false
+  },
+  {
+    "query": "what's the actual difference between ENTRYPOINT and CMD in a Dockerfile",
+    "should_trigger": false
+  }
+]

@@ -1,0 +1,718 @@
+[
+  {
+    "query": "our orders router is like 600 lines now and honestly half of it is business logic - there's a discount calculation inline in the POST handler. whats the right way to split this up in fastapi",
+    "expected": "fastapi-architecture",
+    "runs": 3,
+    "trigger_rate": 1.0,
+    "silent_rate": 0.0,
+    "fired_counts": {
+      "fastapi-architecture": 3
+    },
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "onde eu coloco a validacao de que cliente bloqueado nao pode fazer pedido? no schema do pydantic ou na camada de servico?",
+    "expected": "fastapi-architecture",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "I'm adding a new subscriptions domain to our fastapi service. what files do I need and how should they reference each other",
+    "expected": "fastapi-architecture",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 0.3333333333333333,
+    "fired_counts": {
+      "project-context-discovery": 2
+    },
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "should my repository return the sqlalchemy model or convert it to a dataclass first? converting feels like a lot of boilerplate for no reason",
+    "expected": "fastapi-architecture",
+    "runs": 3,
+    "trigger_rate": 0.3333333333333333,
+    "silent_rate": 0.6666666666666666,
+    "fired_counts": {
+      "fastapi-architecture": 1
+    },
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "we have OrderService, PaymentManager and a UserHelper all doing roughly the same kind of thing. trying to settle on one convention for the team, any opinion",
+    "expected": "fastapi-architecture",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "my endpoint needs to check the user owns the resource, then apply a discount, then save, then call the billing api. right now thats all in the route function and it's getting hard to follow",
+    "expected": "fastapi-architecture",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "our fastapi service gets really slow when traffic goes up but cpu sits at like 20%. even the /health endpoint times out under load. 4 uvicorn workers on ECS",
+    "expected": "fastapi-async",
+    "runs": 3,
+    "trigger_rate": 0.3333333333333333,
+    "silent_rate": 0.6666666666666666,
+    "fired_counts": {
+      "fastapi-async": 1
+    },
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "is it ok to call boto3 inside an async def endpoint? it works fine locally and in staging",
+    "expected": "fastapi-async",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "I need to fetch about 3000 product records from a partner API inside one endpoint. asyncio.gather over all of them is the right call right?",
+    "expected": "fastapi-async",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "minha task com asyncio.create_task as vezes simplesmente nao executa, sem erro nenhum no log. o que pode ser",
+    "expected": "fastapi-async",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "we're hashing passwords with bcrypt inside an async login endpoint and p99 latency went to 4 seconds after we bumped the cost factor",
+    "expected": "fastapi-async",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "getting 'greenlet_spawn has not been called' and sometimes the connection is already in use, this is in a gather over 5 repository calls sharing one AsyncSession",
+    "expected": "fastapi-async",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
+    "expected": "python-testing",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
+    "expected": "python-testing",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "how do I test a fastapi endpoint that depends on get_current_user without actually doing the auth flow",
+    "expected": "python-testing",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "this test passes on its own but fails when I run the whole suite. it's a fastapi e2e test that uses dependency_overrides",
+    "expected": "python-testing",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "preciso escrever teste pro repositorio novo de invoices, ele faz upsert com ON CONFLICT. mocko a session ou uso banco de verdade",
+    "expected": "python-testing",
+    "runs": 3,
+    "trigger_rate": 0.3333333333333333,
+    "silent_rate": 0.6666666666666666,
+    "fired_counts": {
+      "python-testing": 1
+    },
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "we're at 45% coverage and my manager wants 90% across the board. is that a reasonable target and where should I actually start",
+    "expected": "python-testing",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "can you review this diff before I push it? it changes how we compute the invoice total and adds a new column",
+    "expected": "pr-review",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "revisa esse PR aqui - adiciona endpoint de exportacao de relatorio e mexe na migration da tabela de orders",
+    "expected": "pr-review",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "my teammate opened a 1200 line PR that refactors the whole auth module AND adds SSO in the same branch. how should I approach reviewing this",
+    "expected": "pr-review",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "is this branch ready for review? I think I'm done but want a second pass first",
+    "expected": "pr-review",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "what do you think of this change - I replaced the for loop with a bulk insert and dropped the per-row validation",
+    "expected": "pr-review",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "I keep getting review comments that feel nitpicky and the actual bugs slip through. how should we be doing code review differently",
+    "expected": "pr-review",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "dependabot is screaming about a critical CVE in a transitive dependency of pandas. do I have to drop everything and fix this right now",
+    "expected": "code-security",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "GET /invoices/{id} returns the invoice to any authenticated user. is that actually a problem? they do need a valid token to call it",
+    "expected": "code-security",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "como faco scan de vulnerabilidade nas libs do projeto? temos uv.lock e o CI e github actions",
+    "expected": "code-security",
+    "runs": 3,
+    "trigger_rate": 0.3333333333333333,
+    "silent_rate": 0.6666666666666666,
+    "fired_counts": {
+      "code-security": 1
+    },
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "we keep the stripe key in settings.py with a default of sk_test_xxx so local dev works out of the box. someone flagged it, is it actually bad",
+    "expected": "code-security",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "building a search endpoint where the user passes a sort column name that goes into the ORDER BY. what's the safe way to do this",
+    "expected": "code-security",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "we accidentally committed an AWS key three weeks ago and just noticed. already removed it in a new commit, are we good",
+    "expected": "code-security",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "we deploy like 5 times a day. should we be using gitflow with develop and release branches? that's what the last place I worked did",
+    "expected": "gitflow",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "write the commit message for this change, we use conventional commits. it adds retry with backoff to the webhook sender",
+    "expected": "gitflow",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "production is broken from the deploy 20 minutes ago. how do I back it out safely, the merge had 6 commits squashed into one",
+    "expected": "gitflow",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "my feature branch is 3 weeks old and main has moved a lot. rebase or merge main into it?",
+    "expected": "gitflow",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "qual o padrao pra nomear as branches aqui? o time ta usando de tudo, tem branch com nome de pessoa",
+    "expected": "gitflow",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "my branch history is a mess - like eight commits called wip and fix. want to clean it up before asking for review",
+    "expected": "gitflow",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "I removed one item from the middle of a list and now terraform plan wants to recreate 14 ssm parameters. why is it doing that",
+    "expected": "terraform-standards",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "where should terraform state live for a team of 6 deploying to aws? right now it's committed in the repo which I'm told is bad",
+    "expected": "terraform-standards",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "criando a infra de um servico novo na aws com ecs fargate e rds. como organizo os modulos e separo dev de prod",
+    "expected": "terraform-standards",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "the plan output shows -/+ on our rds instance and I don't understand what I changed. it's a 200 line plan",
+    "expected": "terraform-standards",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "someone changed a security group in the aws console and now our apply wants to revert it. what's the right way to handle this",
+    "expected": "terraform-standards",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "need to pass the database password into an rds resource. currently it's a variable in prod.tfvars which we gitignore",
+    "expected": "terraform-standards",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "our github actions ci takes 22 minutes and at this point everyone just merges without waiting for it. how do I make it actually fast",
+    "expected": "cicd-pipelines",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "I need the workflow to build and deploy to ECS on push to main. currently we have AWS_ACCESS_KEY_ID sitting in repo secrets",
+    "expected": "cicd-pipelines",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "reviewing a PR that adds pull_request_target to a workflow so that fork contributors can run the e2e suite. something feels off about it",
+    "expected": "cicd-pipelines",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "add a step to the pipeline that fails the build if coverage drops below 80",
+    "expected": "cicd-pipelines",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "preciso de aprovacao manual antes do deploy em producao no github actions, como configuro isso",
+    "expected": "cicd-pipelines",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "the deploy job goes green but the new version isn't actually running - the ecs task is crash looping and nobody noticed for an hour",
+    "expected": "cicd-pipelines",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "just cloned our team's payments repo, never worked on it before. I need to add an endpoint this week. where do I even start",
+    "expected": "project-context-discovery",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "analisa esse projeto e me diz qual padrao ele segue antes da gente comecar a mexer",
+    "expected": "project-context-discovery",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "before you change anything, figure out how this codebase does things and follow that, don't impose your own style",
+    "expected": "project-context-discovery",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "I'm about to add a module to this service but I'm not sure if they use services or managers or what the test setup looks like. take a look first",
+    "expected": "project-context-discovery",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "this repo has three modules and each one is organized differently. which one should I copy when adding a fourth",
+    "expected": "project-context-discovery",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "inherited a fastapi codebase from a contractor with no docs. help me understand what conventions it actually follows",
+    "expected": "project-context-discovery",
+    "runs": 3,
+    "trigger_rate": 0.0,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "how should I organize my React components? we have a components folder that's 80 files flat and it's unmanageable",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "my node express api is slow under load and the event loop looks blocked. using the clinic.js flame graph",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "write a python function that reads this CSV and returns a dict of totals grouped by category",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "what's the actual difference between ENTRYPOINT and CMD in a Dockerfile",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "can you review my resume? applying for a senior backend role and I think the projects section is weak",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "rename the variable subnet_cidr to private_subnet_cidr across these three .tf files",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "how do I see who last modified line 42 of this file in git",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "what does the -k flag do in pytest exactly, the docs confuse me",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "we're deciding between Kafka and RabbitMQ for the event bus. roughly 50k messages a day, need ordering per customer",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  },
+  {
+    "query": "explain how TCP slow start works, I'm trying to understand a latency graph",
+    "expected": "none",
+    "runs": 3,
+    "trigger_rate": null,
+    "silent_rate": 1.0,
+    "fired_counts": {},
+    "statuses": [
+      "ok"
+    ]
+  }
+]

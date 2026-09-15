@@ -1,0 +1,66 @@
+[
+  {
+    "query": "can you review this diff before I push it? it changes how we compute the invoice total and adds a new column",
+    "should_trigger": true
+  },
+  {
+    "query": "revisa esse PR aqui - adiciona endpoint de exportacao de relatorio e mexe na migration da tabela de orders",
+    "should_trigger": true
+  },
+  {
+    "query": "my teammate opened a 1200 line PR that refactors the whole auth module AND adds SSO in the same branch. how should I approach reviewing this",
+    "should_trigger": true
+  },
+  {
+    "query": "is this branch ready for review? I think I'm done but want a second pass first",
+    "should_trigger": true
+  },
+  {
+    "query": "what do you think of this change - I replaced the for loop with a bulk insert and dropped the per-row validation",
+    "should_trigger": true
+  },
+  {
+    "query": "I keep getting review comments that feel nitpicky and the actual bugs slip through. how should we be doing code review differently",
+    "should_trigger": true
+  },
+  {
+    "query": "dependabot is screaming about a critical CVE in a transitive dependency of pandas. do I have to drop everything and fix this right now",
+    "should_trigger": false
+  },
+  {
+    "query": "GET /invoices/{id} returns the invoice to any authenticated user. is that actually a problem? they do need a valid token to call it",
+    "should_trigger": false
+  },
+  {
+    "query": "we deploy like 5 times a day. should we be using gitflow with develop and release branches? that's what the last place I worked did",
+    "should_trigger": false
+  },
+  {
+    "query": "write the commit message for this change, we use conventional commits. it adds retry with backoff to the webhook sender",
+    "should_trigger": false
+  },
+  {
+    "query": "just cloned our team's payments repo, never worked on it before. I need to add an endpoint this week. where do I even start",
+    "should_trigger": false
+  },
+  {
+    "query": "analisa esse projeto e me diz qual padrao ele segue antes da gente comecar a mexer",
+    "should_trigger": false
+  },
+  {
+    "query": "how should I organize my React components? we have a components folder that's 80 files flat and it's unmanageable",
+    "should_trigger": false
+  },
+  {
+    "query": "my node express api is slow under load and the event loop looks blocked. using the clinic.js flame graph",
+    "should_trigger": false
+  },
+  {
+    "query": "write a python function that reads this CSV and returns a dict of totals grouped by category",
+    "should_trigger": false
+  },
+  {
+    "query": "what's the actual difference between ENTRYPOINT and CMD in a Dockerfile",
+    "should_trigger": false
+  }
+]

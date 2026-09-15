@@ -1,0 +1,66 @@
+[
+  {
+    "query": "just cloned our team's payments repo, never worked on it before. I need to add an endpoint this week. where do I even start",
+    "should_trigger": true
+  },
+  {
+    "query": "analisa esse projeto e me diz qual padrao ele segue antes da gente comecar a mexer",
+    "should_trigger": true
+  },
+  {
+    "query": "before you change anything, figure out how this codebase does things and follow that, don't impose your own style",
+    "should_trigger": true
+  },
+  {
+    "query": "I'm about to add a module to this service but I'm not sure if they use services or managers or what the test setup looks like. take a look first",
+    "should_trigger": true
+  },
+  {
+    "query": "this repo has three modules and each one is organized differently. which one should I copy when adding a fourth",
+    "should_trigger": true
+  },
+  {
+    "query": "inherited a fastapi codebase from a contractor with no docs. help me understand what conventions it actually follows",
+    "should_trigger": true
+  },
+  {
+    "query": "our orders router is like 600 lines now and honestly half of it is business logic - there's a discount calculation inline in the POST handler. whats the right way to split this up in fastapi",
+    "should_trigger": false
+  },
+  {
+    "query": "onde eu coloco a validacao de que cliente bloqueado nao pode fazer pedido? no schema do pydantic ou na camada de servico?",
+    "should_trigger": false
+  },
+  {
+    "query": "can you review this diff before I push it? it changes how we compute the invoice total and adds a new column",
+    "should_trigger": false
+  },
+  {
+    "query": "revisa esse PR aqui - adiciona endpoint de exportacao de relatorio e mexe na migration da tabela de orders",
+    "should_trigger": false
+  },
+  {
+    "query": "write tests for the OrderManager.pay method - it takes an orders repo and a payment gateway in the constructor",
+    "should_trigger": false
+  },
+  {
+    "query": "our integration tests run against sqlite but prod is postgres and we keep shipping bugs that only show up in prod. worth the effort to switch the tests?",
+    "should_trigger": false
+  },
+  {
+    "query": "how should I organize my React components? we have a components folder that's 80 files flat and it's unmanageable",
+    "should_trigger": false
+  },
+  {
+    "query": "my node express api is slow under load and the event loop looks blocked. using the clinic.js flame graph",
+    "should_trigger": false
+  },
+  {
+    "query": "write a python function that reads this CSV and returns a dict of totals grouped by category",
+    "should_trigger": false
+  },
+  {
+    "query": "what's the actual difference between ENTRYPOINT and CMD in a Dockerfile",
+    "should_trigger": false
+  }
+]
